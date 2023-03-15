@@ -4,18 +4,7 @@ const productName = document.querySelector("#product-searched")
 const productForm = document.querySelector("#product-form")
 const categoriesOption = document.querySelector("#categories-list")
 const BASE_URL="http://localhost:9001/"
-
-function renderProduct(product) {
-    return `
-        <div class="card text-center col-md-2 shadow" id="payment">
-          <img src="${product.url_image}" class="card-img-top">
-          <div class="card-body">
-            <h5 class="card-title">Name: ${product.name}</h5>
-            <p class="card-text">Price: s/. ${product.price}</p>
-          </div>
-        </div>
-    `;
-  }
+import {renderProduct} from "./utils.js";
 
 async function getProducts(){
     const response = await fetch(BASE_URL+"api/v1/products", {
